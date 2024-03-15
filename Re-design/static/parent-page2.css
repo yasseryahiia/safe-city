@@ -1,0 +1,191 @@
+.parent-page2-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.parent-page2-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 100%;
+  box-shadow: 5px 3px 10px 2px #8c8888;
+  align-items: center;
+  padding-top: var(--dl-space-space-halfunit);
+  border-color: var(--dl-color-gray-500);
+  border-style: groove;
+  border-width: 1px;
+  padding-left: var(--dl-space-space-halfunit);
+  border-radius: var(--dl-radius-radius-radius4);
+  padding-right: var(--dl-space-space-halfunit);
+  animation-name: slideInDown;
+  padding-bottom: 0px;
+  animation-delay: 0.5s;
+  justify-content: space-between;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  animation-duration: 300ms;
+  border-right-width: 0px;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+.parent-page2-headlogo {
+  width: 15%;
+  height: auto;
+  transition: 0.3s;
+}
+.parent-page2-headlogo:hover {
+  animation: pulse 2s infinite;
+}
+.parent-page2-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+}
+.parent-page2-container2 {
+  flex: 1;
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  border-radius: var(--dl-radius-radius-radius8);
+  justify-content: center;
+}
+.parent-page2-container3 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-start;
+}
+.parent-page2-parentimgcont {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.parent-page2-imgtxtcont {
+  width: 455px;
+  height: 312px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.parent-page2-link {
+  display: contents;
+}
+.parent-page2-image {
+  width: auto;
+  height: 132px;
+  object-fit: cover;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.parent-page2-image:hover {
+  animation: pulse 2s infinite;
+}
+.parent-page2-text {
+  height: 168px;
+  font-size: 3rem;
+  text-align: center;
+}
+.parent-page2-text5 {
+  color: #21d03d;
+}
+.parent-page2-footer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-width: 100%;
+  min-width: 100%;
+  box-shadow: 5px 5px 8px 5px #8c8888;
+  align-items: flex-end;
+  padding-top: var(--dl-space-space-twounits);
+  border-color: var(--dl-color-gray-500);
+  border-style: groove;
+  border-width: 1px;
+  padding-left: var(--dl-space-space-threeunits);
+  padding-right: var(--dl-space-space-threeunits);
+  padding-bottom: var(--dl-space-space-twounits);
+  justify-content: space-between;
+}
+.parent-page2-text7 {
+  width: 30%;
+  font-size: 20px;
+  text-align: left;
+}
+.parent-page2-icon-group {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.parent-page2-icon {
+  fill: var(--dl-color-primary-500);
+  width: 10%;
+  height: auto;
+  transition: 0.3s;
+  margin-right: 0px;
+}
+.parent-page2-icon:hover {
+  cursor: pointer;
+}
+.parent-page2-icon2 {
+  fill: var(--dl-color-primary-100);
+  width: 24px;
+  height: 24px;
+  transition: 0.3s;
+}
+.parent-page2-icon2:hover {
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+.parent-page2-icon4 {
+  fill: var(--dl-color-primary-100);
+  width: 7%;
+  height: auto;
+  transition: 0.3s;
+}
+.parent-page2-icon4:hover {
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
+@media(max-width: 767px) {
+  .parent-page2-header {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .parent-page2-footer {
+    padding-left: var(--dl-space-space-twounits);
+    padding-right: var(--dl-space-space-twounits);
+  }
+  .parent-page2-text7 {
+    text-align: center;
+    margin-left: var(--dl-space-space-unit);
+    margin-right: var(--dl-space-space-unit);
+  }
+}
+@media(max-width: 479px) {
+  .parent-page2-header {
+    padding: var(--dl-space-space-unit);
+  }
+  .parent-page2-footer {
+    padding: var(--dl-space-space-unit);
+    flex-direction: column;
+  }
+  .parent-page2-text7 {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+}

@@ -1,0 +1,44 @@
+{%  extends 'parent-page2.html' %}
+
+      {%  block title %}
+           Sign in
+      {%  endblock %}
+
+        {%  block content %}
+<link rel="stylesheet" href="../static/signin.css" />
+<div class="signin-container2">
+          <div class="signin-container3">
+            <h1 class="signin-hero-heading heading1">Sign in</h1>
+            <div class="signin-container4">
+              <img
+                alt="image"
+            src="../static/used_images/man_icon.png"
+                class="signin-image"
+              />
+            </div>
+            <div class="signin-container5">
+              <form class="signin-form">
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  class="signin-textinput input"
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="signin-textinput1 input"
+                />
+                <a
+                  href="home"
+                  class="signin-hero-button1 button buttonFilled1"
+                >
+                  Sign in
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="signin-container6"></div>
+      {%  endblock %}
+
+

@@ -1,0 +1,106 @@
+.navigation-links-nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+.navigation-links-nav1 {
+  color: var(--dl-color-gray-black);
+  font-size: 25px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.navigation-links-nav1:hover {
+  color: var(--dl-color-custom-primary1);
+  cursor: pointer;
+}
+.navigation-links-nav2 {
+  color: var(--dl-color-gray-black);
+  font-size: 25px;
+  transition: 0.3s;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.navigation-links-nav2:hover {
+  color: var(--dl-color-custom-primary1);
+  cursor: pointer;
+}
+.navigation-links-alertcount {
+  color: #ffffff;
+  width: auto;
+  height: auto;
+  font-size: 18px;
+  align-self: flex-start;
+  text-align: center;
+  font-family: "Oxygen";
+  border-radius: 50px;
+  text-transform: uppercase;
+  background-color: #ff0000;
+}
+.navigation-links-nav3 {
+  color: var(--dl-color-gray-black);
+  font-size: 25px;
+  transition: 0.3s;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.navigation-links-nav3:hover {
+  color: var(--dl-color-custom-primary1);
+  cursor: pointer;
+}
+.navigation-links-nav4 {
+  color: var(--dl-color-gray-black);
+  font-size: 25px;
+  transition: 0.3s;
+  margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
+}
+.navigation-links-nav4:hover {
+  color: var(--dl-color-custom-primary1);
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.navigation-links-root-class-name8 {
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+.navigation-links-root-class-name9 {
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+.navigation-links-root-class-name10 {
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+@media(max-width: 767px) {
+  .navigation-links-nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .navigation-links-nav1 {
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-nav2 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-nav3 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+  .navigation-links-nav4 {
+    margin-left: 0;
+    margin-bottom: var(--dl-space-space-unit);
+  }
+}
