@@ -1,15 +1,35 @@
 from flask import Flask, render_template, Response, request, session
-#from flask_wtf import FlaskForm
-from wtforms import FileField, SubmitField
-# from wtforms.validators import InputRequired
-# from werkzeug.utils import secure_filename
-# import os
-# import cv2
-# from YOLO_Video import video_detection , video_detection2
-# import numpy as np
-
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import func
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///SafeCity.db'
+db = SQLAlchemy(app)
+app.app_context().push()
+
+class Snapshots(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)
+    Detection_img_ref = db.Column(db.String(length=100), nullable=False)
+    Detection_type = db.Column(db.String(length=30), nullable=False)
+    Loc = db.Column(db.String(length=100), nullable=False)
+    Alert_sentTo = db.Column(db.String(80), unique=True, nullable=False)
+    Time = db.Column(db.DateTime(timezone=True),server_default=func.now())
+
+    def __repr__(self):
+        return f'Snapshots {self.Loc}'
+
+from flask_wtf import FlaskForm
+from wtforms import FileField, SubmitField
+from wtforms.validators import InputRequired
+from werkzeug.utils import secure_filename
+import os
+import cv2
+#from YOLO_Video import video_detection , video_detection2
+import numpy as np
+
+
 # app.config['SECRET_KEY'] = 'muhammadmoin'
 # app.config['UPLOAD_FOLDER'] = r'C:\Users\yassi\Desktop\web app\crowd videos'
 #
@@ -27,23 +47,25 @@ app = Flask(__name__)
 
 
 
-@app.route("/parent")
-def parent_page1():
-    return render_template("parent-page1.html")
-
-@app.route("/parent2")
-def parent_page2():
-    return render_template("parent-page2.html")
-
-@app.route("/alerts")
-def snapshot_home():
-    return render_template("alerts.html")
-
 
 @app.route("/signin")
 @app.route("/")
 def login():
     return render_template("signin.html")
+
+
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+
+@app.route("/alerts")
+def snapshot():
+    snaps=Snapshots.query.all()
+    return render_template("alerts.html",snaps = snaps )
+
+
 
 @app.route("/signup")
 def signup():
@@ -62,10 +84,6 @@ def analysis():
 # def default():
 #     session.clear()
 #     return render_template('index.html')
-
-@app.route("/home")
-def home():
-    return render_template("home.html")
 
 # @app.route('/FrontPage', methods=['GET', 'POST'])
 # def front():
