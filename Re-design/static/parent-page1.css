@@ -29,16 +29,20 @@
   animation:  pulse 2s infinite;
 }
 .navigation-links-alertcount {
+  display: block;
   color: #ffffff;
   width: auto;
   height: auto;
-  font-size: 18px;
   align-self: flex-start;
   text-align: center;
-  font-family: "Oxygen";
-  border-radius: 50px;
-  text-transform: uppercase;
-  background-color: #ff0000;
+  -moz-border-radius: 50%; /* or 50% */
+  border-radius: 100%; /* or 50% */
+  background-color: red;
+  font-size: 1em;
+  padding-left:.7% ;
+  padding-right:.7%;
+  padding-top:0%;
+  padding-bottom:0%;
 }
 .navigation-links-nav3 {
   color: var(--dl-color-gray-black);
