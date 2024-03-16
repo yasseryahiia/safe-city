@@ -125,10 +125,14 @@
   border-radius: var(--dl-radius-radius-radius8);
   text-decoration: none;
   text-align:center;
+  
 }
 .signin-hero-button1:hover {
   cursor: pointer;
   animation: pulse 2s infinite;
+  color:#ed6a5a;
+  background-color: #FFFF;
+
 }
 .signin-container6 {
   flex: 0 0 auto;

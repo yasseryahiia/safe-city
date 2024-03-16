@@ -94,7 +94,8 @@
 }
 .signup-hero-button1:hover {
   animation: pulse 2s infinite;
-  color:#FFFF;
+  color:#ed6a5a;
+  background-color: #FFFF;
 }
 .signup-container6 {
   flex: 0 0 auto;
