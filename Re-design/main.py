@@ -59,7 +59,6 @@ def home():
     return render_template("home.html")
 
 
-
 @app.route("/alerts")
 def snapshot():
     snaps=Snapshots.query.all()
