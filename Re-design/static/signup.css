@@ -14,15 +14,7 @@
   display: flex;
   align-items: flex-start;
 }
-.signup-container2 {
-  flex: 1;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: flex-start;
-  border-radius: var(--dl-radius-radius-radius8);
-  justify-content: center;
-}
+
 .signup-container3 {
   gap: var(--dl-space-space-oneandhalfunits);
   width: auto;
@@ -86,11 +78,12 @@
 }
 .signup-textinput2 {
   border-radius: var(--dl-radius-radius-radius8);
+  
 }
 
 .signup-hero-button1 {
 
-  margin-top: 50px;
+  margin-top: 30px;
   transition: 0.3s;
   border-width: 0px;
   border-radius: var(--dl-radius-radius-radius8);
