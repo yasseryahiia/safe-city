@@ -10,7 +10,7 @@
 
 <table class="table table-hover table-dark">
       <thead>
-          <tr>
+          <tr class="table-active">
               <!-- Your Columns HERE -->
               <th scope="col"> Snapshot </th>
               <th scope="col">Detection</th>
@@ -30,7 +30,7 @@
                   <td>{{ snap.Alert_sentTo }}</td>
                   <td>{{ snap.Time }}</td>
                   <td>
-                      <button class="show">Show</button>                    
+                      <button type="button" class="btn btn-primary btn-lg">Show</button>                    
                   </td>
               </tr>
           {% endfor %}
