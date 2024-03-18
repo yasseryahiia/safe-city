@@ -1,7 +1,7 @@
 from SafeCity import app
 from flask import render_template
 
-#when added a table in db u should add his declaration here too
+#when added a table in db u should add his import here too
 from SafeCity.models import Snapshots
 
 
