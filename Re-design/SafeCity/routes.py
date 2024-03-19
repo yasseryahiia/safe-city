@@ -3,6 +3,7 @@ from flask import render_template
 
 #when added a table in db u should add his import here too
 from SafeCity.models import Snapshots
+from SafeCity.forms import RegisterForm
 
 
 @app.route("/signin")
@@ -25,7 +26,8 @@ def snapshot():
 
 @app.route("/signup")
 def signup():
-    return render_template("signup.html")
+    form = RegisterForm()
+    return render_template("signup.html",form=form)
 
 @app.route("/livestream")
 def live():

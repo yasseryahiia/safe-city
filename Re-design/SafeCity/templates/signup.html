@@ -23,25 +23,15 @@
               />
             </div>
             <div class="signup-container5">
-              <form class="signup-form">
-                <input
-                type="text"
-                placeholder="Username"
-                  class="signup-textinput input"
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  class="signup-textinput1 input"
-                />
-                 <input
-                type="text"
-                placeholder="Location"
-                class="signup-textinputLoc input"
 
-              />
 
-               
+              <!-- form -->
+              <form method="POST" class="signup-form">
+                {{ form.username(class="signup-textinput input", placeholder="Username") }}
+                {{ form.password1(class="signup-textinput1 input", placeholder="Password") }}
+                {{ form.location(class="signup-textinput2 input" , placeholder="Location") }}
+
+                <!-- camera id dropdown list -->
                 <div class="btn-group">
                   <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
                    aria-expanded="false" data-bs-toggle="dropdown">
@@ -83,13 +73,15 @@
                       </li>
                   </ul>
               </div>
-                <a
-                  href="signup"
-                  class="signup-hero-button1 button buttonFilled1"
-                >
-                  Register
-                </a>
-              </form>
+
+
+             
+              {{ form.submit(class="signup-hero-button1 button buttonFilled1") }}
+              
+            </form>
+              <!-- form -->
+
+              
             </div>
           </div>
         </div>
