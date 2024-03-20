@@ -1,6 +1,8 @@
 # safe-city
-note1: use python 3.11.7 to able to use sql_alchmey
-note2: install an 2 extensions called 'SQLite3 Editor - SQLite ' to be able to see the database
+notes
+1 - use python 3.11.7 to able to use sql_alchmey
+2 - install an extension called 'SQLite3 Editor' to be able to see the database
+3 - install flask - flask wtf - ultralytics - flask_sqlalchemy
 
 ------------------------------------------------------------------
 folder istance has the database .<br>
