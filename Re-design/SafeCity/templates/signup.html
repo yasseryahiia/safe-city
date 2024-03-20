@@ -27,6 +27,8 @@
 
               <!-- form -->
               <form method="POST" class="signup-form">
+                {{ form.hidden_tag() }}
+
                 {{ form.username(class="signup-textinput input", placeholder="Username") }}
                 {{ form.password(class="signup-textinput1 input", placeholder="Password") }}
                 {{ form.location(class="signup-textinput2 input" , placeholder="Location") }}

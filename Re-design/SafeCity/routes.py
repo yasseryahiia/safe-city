@@ -26,7 +26,7 @@ def snapshot():
 
 
 
-@app.route("/signup")
+@app.route("/signup" , methods=['POST','GET'])
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
