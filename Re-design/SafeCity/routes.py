@@ -1,5 +1,7 @@
 from SafeCity import app
-from flask import render_template
+from flask import render_template , redirect , url_for
+from SafeCity import db
+from SafeCity.models import User , Snapshots
 
 #when added a table in db u should add his import here too
 from SafeCity.models import Snapshots
@@ -27,6 +29,15 @@ def snapshot():
 @app.route("/signup")
 def signup():
     form = RegisterForm()
+    if form.validate_on_submit():
+        user_to_create = User(Username=form.username.data,
+                              password_hash=form.password.data,
+                              location=form.location.data
+                              )
+        db.session.add(user_to_create)
+        db.session.commit()
+        return redirect(url_for('signup'))
+
     return render_template("signup.html",form=form)
 
 @app.route("/livestream")

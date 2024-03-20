@@ -5,7 +5,9 @@ from SafeCity import func # for time
 class User(db.Model):
     Username = db.Column(db.String(length=50), nullable=False, primary_key=True)
     password_hash = db.Column(db.String(length=60), nullable=False)
-    camera_id = db.Column(db.Integer(), unique=True)
+    location = db.Column(db.String(length=60), nullable=False)
+
+    camera_id = db.Column(db.Integer()) #unique=True or False ?
 
     #relationship between User and Snapshots
     alerts = db.relationship('Snapshots', backref='owned_user', lazy=True)
