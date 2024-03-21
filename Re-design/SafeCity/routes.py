@@ -1,5 +1,5 @@
 from SafeCity import app
-from flask import render_template , redirect , url_for
+from flask import render_template , redirect , url_for , flash
 from SafeCity import db
 from SafeCity.models import User , Snapshots
 
@@ -37,6 +37,10 @@ def signup():
         db.session.add(user_to_create)
         db.session.commit()
         return redirect(url_for('signup'))
+
+    if form.errors != {}: #If there are not errors from the validations
+        for err_msg in form.errors.values():
+            flash(f'There was an error with creating a user: {err_msg}', category='danger')
 
     return render_template("signup.html",form=form)
 
