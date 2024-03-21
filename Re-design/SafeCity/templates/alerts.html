@@ -1,0 +1,42 @@
+{%  extends 'parent-page1.html' %}
+
+      {%  block title %}
+            Alerts
+      {%  endblock %}
+
+        {%  block content %}
+
+<link rel="stylesheet" href="../static/alerts.css" />
+
+<table id="Alerts_table" class="table table-hover table-dark">
+      <thead>
+          <tr class="table-active">
+              <!-- Your Columns HERE -->
+              <th scope="col"> Snapshot </th>
+              <th scope="col">Detection</th>
+              <th scope="col">Location</th>
+              <th scope="col">Alert sent to </th>
+              <th scope="col">Time</th>
+              <th scope="col">  <!-- for button --></th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Your rows inside the table HERE: -->
+          {% for snap in snaps %}
+              <tr>
+                  <td>{{ snap.Detection_img_ref }}</td>
+                  <td>{{ snap.Detection_type }}</td>
+                  <td>{{ snap.Loc }}</td>
+                  <td>{{ snap.Alert_sentTo }}</td>
+                  <td>{{ snap.Time }}</td>
+                  <td>
+                      <button type="button" class="btn btn-primary btn-lg">Show</button>                    
+                  </td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+
+
+        {%  endblock %}
