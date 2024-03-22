@@ -37,12 +37,14 @@ def signup():
                               )
         db.session.add(user_to_create)
         db.session.commit()
+        flash(f'A user was added ', category='success')
         return redirect(url_for('signup'))
 
     if form.errors != {}: #If there are not errors from the validations
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
-
+    
+    
     return render_template("signup.html",form=form)
 
 @app.route("/livestream")
