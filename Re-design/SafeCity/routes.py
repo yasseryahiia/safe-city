@@ -31,7 +31,7 @@ def snapshot():
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
-        user_to_create = User(Username=form.username.data,
+        user_to_create = User(username=form.username.data,
                               password=form.password.data,
                               location=form.location.data
                               )
