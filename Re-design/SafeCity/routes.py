@@ -37,7 +37,7 @@ def signup():
                               )
         db.session.add(user_to_create)
         db.session.commit()
-        flash(f'A user was added ', category='success')
+        flash(f'A user was added successfully ', category='success')
         return redirect(url_for('signup'))
 
     if form.errors != {}: #If there are not errors from the validations
