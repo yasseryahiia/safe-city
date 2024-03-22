@@ -5,13 +5,14 @@ from SafeCity.models import User , Snapshots
 
 #when added a table in db u should add his import here too
 from SafeCity.models import Snapshots
-from SafeCity.forms import RegisterForm
+from SafeCity.forms import RegisterForm , LoginForm
 
 
 @app.route("/signin")
 @app.route("/")
 def login():
-    return render_template("signin.html")
+    form = LoginForm()
+    return render_template("signin.html", form=form)
 
 
 @app.route("/home")
@@ -31,7 +32,7 @@ def signup():
     form = RegisterForm()
     if form.validate_on_submit():
         user_to_create = User(Username=form.username.data,
-                              password_hash=form.password.data,
+                              password=form.password.data,
                               location=form.location.data
                               )
         db.session.add(user_to_create)

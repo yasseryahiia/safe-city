@@ -5,6 +5,8 @@ from sqlalchemy.sql import func
 from flask_wtf import FlaskForm
 from wtforms import FileField, SubmitField
 from wtforms.validators import InputRequired
+from flask_bcrypt import Bcrypt
+
 from werkzeug.utils import secure_filename
 import os
 import cv2
@@ -16,6 +18,8 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///SafeCity.db'
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+
 app.app_context().push()
 
 

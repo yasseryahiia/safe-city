@@ -1,4 +1,5 @@
 from SafeCity import db
+from SafeCity import bcrypt
 from SafeCity import func # for time
 
 
@@ -6,11 +7,20 @@ class User(db.Model):
     Username = db.Column(db.String(length=50), nullable=False, primary_key=True)
     password_hash = db.Column(db.String(length=60), nullable=False)
     location = db.Column(db.String(length=60), nullable=False)
-
     camera_id = db.Column(db.Integer()) #unique=True or False ?
-
     #relationship between User and Snapshots
     alerts = db.relationship('Snapshots', backref='owned_user', lazy=True)
+
+    @property
+    def password(self):
+        return self.password
+
+    @password.setter
+    def password(self, plain_text_password):
+        self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
+
+
+
 
 class Snapshots(db.Model):
     id = db.Column(db.Integer(), primary_key=True)

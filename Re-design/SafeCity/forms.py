@@ -18,3 +18,11 @@ class RegisterForm(FlaskForm):
     location = StringField(label='Location', validators=[DataRequired()])  
     #camera_id = BooleanField(label='CameraID',validators=[DataRequired()])
     submit = SubmitField(label='Sign up')
+
+
+
+
+class LoginForm(FlaskForm):
+    username = StringField(label='Username' , validators=[Length(min=3,max=20),DataRequired()])  
+    password = PasswordField(label='Password' , validators=[Length(max=20),DataRequired()]) 
+    submit = SubmitField(label='Sign in')
