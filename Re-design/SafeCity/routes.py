@@ -18,7 +18,7 @@ def login():
                 attempted_password=form.password.data
         ):
             login_user(attempted_user)
-            flash(f'Welcome  {attempted_user.username}', category='success')
+          #  flash(f'Welcome  {attempted_user.username}', category='success')
             
             return redirect(url_for('home'))
         else:
