@@ -1,17 +1,30 @@
 from SafeCity import app
-from flask import render_template , redirect , url_for
+from flask import render_template , redirect , url_for , flash
 from SafeCity import db
-from SafeCity.models import User , Snapshots
-
 #when added a table in db u should add his import here too
-from SafeCity.models import Snapshots
-from SafeCity.forms import RegisterForm
+from SafeCity.models import User , Snapshots
+from SafeCity.forms import RegisterForm , LoginForm
+from flask_login import login_user
 
 
-@app.route("/signin")
-@app.route("/")
+
+@app.route("/signin", methods=['POST','GET'])
+@app.route("/", methods=['POST','GET'])
 def login():
-    return render_template("signin.html")
+    form = LoginForm()
+    if form.validate_on_submit():
+        attempted_user = User.query.filter_by(username=form.username.data).first()
+        if attempted_user and attempted_user.check_password_correction(
+                attempted_password=form.password.data
+        ):
+            login_user(attempted_user)
+          #  flash(f'Welcome  {attempted_user.username}', category='success')
+            
+            return redirect(url_for('home'))
+        else:
+            flash('Username and password are not match! Please try again', category='danger')
+
+    return render_template("signin.html", form=form)
 
 
 @app.route("/home")
@@ -30,14 +43,20 @@ def snapshot():
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
-        user_to_create = User(Username=form.username.data,
-                              password_hash=form.password.data,
+        user_to_create = User(username=form.username.data,
+                              password=form.password.data,
                               location=form.location.data
                               )
         db.session.add(user_to_create)
         db.session.commit()
+        flash(f'A user was added successfully ', category='success')
         return redirect(url_for('signup'))
 
+    if form.errors != {}: #If there are not errors from the validations
+        for err_msg in form.errors.values():
+            flash(f'There was an error with creating a user: {err_msg}', category='danger')
+    
+    
     return render_template("signup.html",form=form)
 
 @app.route("/livestream")

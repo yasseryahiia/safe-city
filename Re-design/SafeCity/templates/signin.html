@@ -17,23 +17,17 @@
               />
             </div>
             <div class="signin-container5">
-              <form class="signin-form">
-                <input
-                  type="text"
-                  placeholder="Username"
-                  class="signin-textinput input"
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  class="signin-textinput1 input"
-                />
-                <a
-                  href="home"
-                  class="signin-hero-button1 button buttonFilled1"
-                >
-                  Sign in
-                </a>
+
+
+               <!-- form -->
+              <form method="POST" class="signin-form">
+                {{ form.hidden_tag() }}
+
+                {{ form.username(class="signin-textinput input", placeholder="Username") }}
+                {{ form.password(class="signin-textinput1 input", placeholder="Password") }}
+
+               
+                {{ form.submit(class="signin-hero-button1 button buttonFilled1") }}
               </form>
             </div>
           </div>
