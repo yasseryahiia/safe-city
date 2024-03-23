@@ -1,17 +1,29 @@
 from SafeCity import app
 from flask import render_template , redirect , url_for , flash
 from SafeCity import db
-from SafeCity.models import User , Snapshots
-
 #when added a table in db u should add his import here too
-from SafeCity.models import Snapshots
+from SafeCity.models import User , Snapshots
 from SafeCity.forms import RegisterForm , LoginForm
+from flask_login import login_user
 
 
-@app.route("/signin")
-@app.route("/")
+
+@app.route("/signin", methods=['POST','GET'])
+@app.route("/", methods=['POST','GET'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        attempted_user = User.query.filter_by(username=form.username.data).first()
+        if attempted_user and attempted_user.check_password_correction(
+                attempted_password=form.password.data
+        ):
+            login_user(attempted_user)
+            flash(f'Welcome  {attempted_user.username}', category='success')
+            
+            return redirect(url_for('home'))
+        else:
+            flash('Username and password are not match! Please try again', category='danger')
+
     return render_template("signin.html", form=form)
 
 

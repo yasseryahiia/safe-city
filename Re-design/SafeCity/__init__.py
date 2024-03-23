@@ -2,6 +2,8 @@ from flask import Flask, render_template, Response, request, session
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
+from flask_login import LoginManager
+
 from flask_wtf import FlaskForm
 from wtforms import FileField, SubmitField
 from wtforms.validators import InputRequired
@@ -19,6 +21,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///SafeCity.db'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
 
 app.app_context().push()
 
