@@ -2,9 +2,9 @@ from SafeCity import app
 from flask import render_template , redirect , url_for , flash
 from SafeCity import db
 #when added a table in db u should add his import here too
-from SafeCity.models import User , Snapshots
+from SafeCity.models import User , Snapshots , Camera
 from SafeCity.forms import RegisterForm , LoginForm
-from flask_login import login_user
+from flask_login import login_user , logout_user , login_required
 
 
 
@@ -19,18 +19,25 @@ def login():
         ):
             login_user(attempted_user)
           #  flash(f'Welcome  {attempted_user.username}', category='success')
-            
-            return redirect(url_for('home'))
+            if(attempted_user=='admin'):
+                return redirect(url_for('admin'))
+            else:
+                return redirect(url_for('home'))
         else:
             flash('Username and password are not match! Please try again', category='danger')
 
     return render_template("signin.html", form=form)
 
 
+
+
 @app.route("/home")
 def home():
     return render_template("home.html")
 
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
 
 @app.route("/alerts")
 def snapshot():
@@ -59,6 +66,12 @@ def signup():
     
     return render_template("signup.html",form=form)
 
+def logout_page():
+    logout_user()
+    flash("You have been logged out!", category='info')
+    return redirect(url_for("signin"))
+
+
 @app.route("/livestream")
 def live():
     return render_template("livestream.html")
@@ -67,6 +80,11 @@ def live():
 
 def analysis():
     return render_template("analytics.html")
+
+
+
+
+
 
 # @app.route('/', methods=['GET', 'POST'])
 # def default():
