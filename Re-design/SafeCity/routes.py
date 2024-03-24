@@ -19,7 +19,7 @@ def login():
         ):
             login_user(attempted_user)
           #  flash(f'Welcome  {attempted_user.username}', category='success')
-            if(attempted_user=='admin'):
+            if(attempted_user.username=="admin"):
                 return redirect(url_for('admin'))
             else:
                 return redirect(url_for('home'))
@@ -27,6 +27,12 @@ def login():
             flash('Username and password are not match! Please try again', category='danger')
 
     return render_template("signin.html", form=form)
+
+@app.route('/logout')
+def logout_page():
+    logout_user()
+    flash("You have been logged out!", category='info')
+    return redirect(url_for("/"))
 
 
 
@@ -66,10 +72,7 @@ def signup():
     
     return render_template("signup.html",form=form)
 
-def logout_page():
-    logout_user()
-    flash("You have been logged out!", category='info')
-    return redirect(url_for("signin"))
+
 
 
 @app.route("/livestream")
@@ -80,8 +83,6 @@ def live():
 
 def analysis():
     return render_template("analytics.html")
-
-
 
 
 
