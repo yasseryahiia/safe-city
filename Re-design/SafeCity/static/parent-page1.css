@@ -199,7 +199,6 @@
   justify-content: space-between;
 }
 .parent-page1-logregbtn {
-  width: 15%;
   display: flex;
   align-items: center;
   flex-direction: row;
