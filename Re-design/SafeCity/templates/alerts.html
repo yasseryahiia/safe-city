@@ -8,7 +8,55 @@
 
 <link rel="stylesheet" href="../static/alerts.css" />
 
-<table id="Alerts_table" class="table table-hover table-dark">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+    <input class="form-control" id="myInput" type="text" placeholder="Search by any field ..">
+    <br>
+
+<!--
+    <div>
+        <div class="row">
+          <form id="search" role="form" style="border:0">
+            <div class="col-md-3">
+              <ul class="nav nav-stacked">
+                <li><strong>From Date</strong></li>
+                <li>
+                  <input type="text" class="form-control" value="2015-06-17" id="dateFrom" />
+                </li>
+              </ul>
+            </div>
+      
+            <div class="col-md-3">
+              <ul class="nav nav-stacked">
+                <li><strong>To Date</strong></li>
+                <li>
+                  <input type="text" class="form-control" value="2015-06-19" id="dateTo" />
+                </li>
+              </ul>
+            </div>
+      
+            <div class="col-md-3">
+              <ul class="nav nav-stacked">
+                <li>&nbsp;</li>
+                <li>
+                    <br>
+                  <button class="btn btn-primary" type="button" id="getJsonSrc">Filter date</button>
+                </li>
+              </ul>
+            </div>
+          </form>
+        </div>
+        <br>    <br>
+
+
+</div>  
+-->
+ <table id="Alerts_table" class="table table-hover table-dark" >
       <thead>
           <tr class="table-active">
               <!-- Your Columns HERE -->
@@ -20,11 +68,12 @@
               <th scope="col">  <!-- for button --></th>
           </tr>
       </thead>
-      <tbody>
+      <tbody id="myTable">
           <!-- Your rows inside the table HERE: -->
           {% for snap in snaps %}
               <tr>
-                  <td>{{ snap.Detection_img_ref }}</td>
+                <!--  <td>{{ snap.Detection_img_ref }}</td>   -->
+                  <td class="w-25"><img class="rounded mx-auto d-block" src='../static/used_images/alerts_images/{{snap.Detection_img_ref}}'/></td>  
                   <td>{{ snap.Detection_type }}</td>
                   <td>{{ snap.Loc }}</td>
                   <td>{{ snap.Alert_sentTo }}</td>
@@ -36,6 +85,59 @@
           {% endfor %}
       </tbody>
   </table>
+
+
+<script>
+    /*show recent detection */
+$(function(){
+    $("tbody").each(function(elem,index){
+      var arr = $.makeArray($("tr",this).detach());
+      arr.reverse();
+        $(this).append(arr);
+    });
+});
+
+
+/*  filter the whole table */
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+
+/* date filter
+
+    $("#getJsonSrc").click(function () {
+  $("#Alerts_table thead").show();
+  var $table = $("#Alerts_table"),
+    $startDate = new Date($("#dateFrom").val()),
+    $endDate = new Date($("#dateTo").val()),
+    $jsonSrc = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/77979/demo.json";
+
+  var my_array;
+  $.getJSON($jsonSrc).success(function (data) {
+    my_array = [];
+
+    for (var i = 0; i < data.length; i++) {
+      var this_date = new Date(data[i].date);
+      if (this_date >= $startDate && this_date <= $endDate) {
+        my_array.push(data[i]);
+      }
+    }
+    my_array = JSON.stringify(my_array);
+    alert(my_array);
+  });
+  $table.bootstrapTable("load", my_array);
+});
+
+
+*/
+
+    </script>
+
 
 
 
