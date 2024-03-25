@@ -24,7 +24,8 @@
           <!-- Your rows inside the table HERE: -->
           {% for snap in snaps %}
               <tr>
-                  <td>{{ snap.Detection_img_ref }}</td>
+                  <td>{{ snap.Detection_img_ref }}</td>  
+                  <!--   <td class="w-25"><img class="img-fluid" src='https://uploaded-alerts.s3.eu-north-1.amazonaws.com/media/{{snap.Detection_img_ref}}'/></td>   -->
                   <td>{{ snap.Detection_type }}</td>
                   <td>{{ snap.Loc }}</td>
                   <td>{{ snap.Alert_sentTo }}</td>
